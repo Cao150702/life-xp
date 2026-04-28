@@ -1,56 +1,136 @@
-# 🎮 人生努力可视化系统
+# LifeQuest — 人生努力可视化
 
-> 把日常生活变成一场 RPG，记录每一次努力，见证自己的成长。
+> 把日常生活变成一场 RPG。记录每一次努力，见证自己的成长。
 
-一个纯前端单文件应用，无需后端、无需安装，打开即用。将学习、运动、阅读、工作等日常活动转化为经验值和等级，用游戏化的方式追踪你的成长轨迹。
+```
+┌─────────────────┐     ┌─────────────────┐     ┌──────────────┐
+│  iOS (SwiftUI)  │     │ Android (Compose)│     │   Web (v1)   │
+│  原生客户端      │     │ 原生客户端        │     │  单文件归档   │
+└────────┬────────┘     └────────┬─────────┘     └──────────────┘
+         │                       │
+         └───────────┬───────────┘
+                     │
+              ┌──────▼──────┐
+              │   Supabase   │
+              │  PostgreSQL  │
+              │  Auth + RLS  │
+              └──────────────┘
+```
 
-## ✨ 功能亮点
+## ✨ 功能
 
 | 模块 | 说明 |
 |------|------|
-| 🧙 **角色卡系统** | 自定义昵称和头像，角色等级 + 总经验 + 天数 + 成就数 |
-| ⏱️ **专注计时器** | 实时倒计时、25min 番茄钟预设、暂停/继续/放弃确认 |
-| 🗡️ **技能等级** | 6 大分类独立等级，每个技能有独立经验值和升级曲线 |
-| 📊 **数据分析** | 周报面板、Canvas 趋势折线图、甜甜圈分类饼图、热力图 |
-| 🏆 **成就系统** | 24 个成就 / 4 级稀有度（普通·稀有·史诗·传说）/ 解锁动画 |
-| 🎆 **升级特效** | 全屏光环扩散 + 数字弹跳 + 彩纸雨 |
-| 💾 **本地存储** | 所有数据自动保存到浏览器 localStorage |
-| 📤 **数据管理** | JSON 导入 / 导出 / 一键清空（二次确认） |
-| 📱 **响应式** | 桌面顶栏导航 + 移动端底部 Tab，macOS / iOS / Android 适配 |
+| 🧙 **角色系统** | 自定义昵称头像，25 级 + 11 阶称号，经验值驱动升级 |
+| ⏱️ **专注计时器** | 实时计时，6 类别选择，精确到分钟 |
+| 🗡️ **技能等级** | 学习/科研/编程/运动/阅读/表达，独立经验与升级 |
+| 📊 **数据分析** | 周统计 + 趋势图 + 分类分布 + 热力图 |
+| 🏆 **成就系统** | 24 成就，4 级稀有度（普通/稀有/史诗/传说） |
+| 🎆 **升级特效** | 光环扩散 + 数字弹跳 + 彩纸雨 |
+| ☁️ **云端同步** | 匿名登录即用，可选注册升级，离线支持 |
+| 📤 **数据迁移** | Web v1 JSON 一键导入，跨平台无缝衔接 |
 
-## 🚀 使用方式
-
-直接打开 [`docs/life-xp/index.html`](docs/life-xp/index.html) 即可开始使用，无需任何依赖。
-
-也可以通过 GitHub Pages 在线访问。
-
-## 🛠️ 技术栈
-
-- **纯 HTML/CSS/JS**，零依赖，单文件 1271 行
-- 深色主题 + 玻璃拟态（Glassmorphism）
-- Canvas 原生绘图（趋势图 + 饼图）
-- CSS Animations + Keyframes（升级特效 / 成就解锁）
-- localStorage 持久化
-
-## 📸 预览
-
-> 首次打开会进入 3 步引导流程：取名 → 选头像 → 进入主界面
-
-**主界面**：角色卡 + 专注计时器 + 技能网格 + 今日记录
-
-**分析面板**：周报统计 + 趋势图 + 分类分布 + 热力图
-
-**成就墙**：按稀有度分类展示，带进度条和解锁动画
-
-## 📁 项目结构
+## 项目结构
 
 ```
 life-xp/
-└── docs/
-    └── life-xp/
-        └── index.html    # 完整应用（单文件）
+├── shared/                          # 共享设计规范（双端统一标准）
+│   ├── design/DESIGN_SYSTEM.md      # 色彩/字体/间距/圆角/动画/组件
+│   └── docs/
+│       ├── DATA_MODELS.md           # 三端统一数据模型
+│       └── AUTH_SYNC_GUIDE.md       # Auth + 离线同步引擎
+│
+├── supabase/                        # 后端
+│   └── migrations/
+│       └── 001_initial_schema.sql   # 5 表 + RLS + 触发器 + 迁移函数
+│
+├── ios/LifeQuest/                   # iOS (SwiftUI)
+│   ├── project.yml                  # XcodeGen 配置
+│   └── LifeQuest/
+│       ├── App/                     # 入口 + LaunchScreen
+│       ├── Models/                  # LevelSystem / Category / Achievement
+│       ├── ViewModels/              # AuthViewModel（匿名登录/注册升级）
+│       ├── Views/                   # 5 Tab 页面 + 引导流程
+│       ├── Services/                # SupabaseManager
+│       └── Theme/                   # AppTheme（色彩/渐变/稀有度）
+│
+├── android/LifeQuest/               # Android (Jetpack Compose)
+│   └── app/src/main/java/com/lifequest/
+│       ├── data/model/              # 数据模型
+│       ├── data/local/              # Room 实体 + SyncRecord
+│       ├── ui/theme/                # Material3 暗色主题
+│       ├── ui/navigation/           # NavHost + BottomBar
+│       └── ui/                      # 各 Screen + ViewModel
+│
+└── web/index.html                   # v1 单文件归档（纯 HTML/CSS/JS）
 ```
 
-## 📄 License
+## 快速开始
+
+### 前置：Supabase
+
+1. [创建项目](https://supabase.com/dashboard)
+2. SQL Editor → 运行 `supabase/migrations/001_initial_schema.sql`
+3. Authentication → Providers → 启用 **Anonymous** + **Email**
+
+### iOS
+
+```bash
+cd ios/LifeQuest
+xcodegen generate        # 生成 .xcodeproj
+open LifeQuest.xcodeproj # Xcode 打开
+# SPM 添加: https://github.com/supabase/supabase-swift
+# ⌘R 运行
+```
+
+> 需要 Xcode 16+，iOS 17.0+
+
+### Android
+
+```bash
+cd android/LifeQuest
+# Android Studio 打开
+# Gradle Sync → Run
+```
+
+> 需要 Android Studio，minSdk 26，targetSdk 35
+
+### Web (v1)
+
+直接打开 `web/index.html`，纯前端，无需部署。
+
+## 技术栈
+
+| | iOS | Android |
+|--|-----|---------|
+| 语言 | Swift 5.9 | Kotlin |
+| UI | SwiftUI | Jetpack Compose |
+| 架构 | MVVM | MVVM + Hilt |
+| 本地存储 | SwiftData | Room |
+| 网络 | supabase-swift | supabase-kotlin |
+| 图表 | Swift Charts | Vico |
+| 动画 | SwiftUI + Lottie | Compose + Lottie |
+
+## 数据库设计
+
+| 表 | 说明 |
+|----|------|
+| `profiles` | 用户档案（自动关联 auth.users） |
+| `logs` | 活动记录（分类/时长/经验/日期） |
+| `custom_categories` | 自定义类别 |
+| `unlocked_achievements` | 成就解锁记录 |
+| `timer_snapshots` | 进行中的计时器快照 |
+
+所有表均启用 RLS，用户只能访问自己的数据。
+
+## 用户体系
+
+```
+首次打开 → 匿名登录（自动）→ 立即使用
+   │
+   └── 随时可升级为邮箱/手机号注册（数据保留）
+```
+
+## License
 
 MIT
