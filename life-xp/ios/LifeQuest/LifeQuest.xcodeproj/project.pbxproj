@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08A0856ADDEB665D56EC0E64 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6614469160B07A59A5C09F78 /* MapKit.framework */; };
+		2148624F23AB40DF354221FD /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D7A0FB3009D71DEBD2588 /* MainTabView.swift */; };
+		32FBFFEF008D3D34287931FD /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCA2E5A51B085AC23EEAAD9 /* TimerView.swift */; };
+		342D19CDEDEFEEA16D614FE1 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6655CD40A404126D674C71D1 /* AuthViewModel.swift */; };
+		3A0E555E2FA0CA27007AD1AB /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E555D2FA0CA27007AD1AB /* Auth */; };
+		3A0E55602FA0CA27007AD1AB /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E555F2FA0CA27007AD1AB /* Functions */; };
+		3A0E55622FA0CA27007AD1AB /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E55612FA0CA27007AD1AB /* PostgREST */; };
+		3A0E55642FA0CA27007AD1AB /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E55632FA0CA27007AD1AB /* Realtime */; };
+		3A0E55662FA0CA27007AD1AB /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E55652FA0CA27007AD1AB /* Storage */; };
+		3FB0832E339304B2D91E825B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 165DB058A555D7456F6EF5FD /* Assets.xcassets */; };
+		401A8488C6A5A4827AEF41EB /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5639729367786AF6848C94E /* AnalyticsView.swift */; };
+		4AD10291BA13D01FE07EEB58 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0208A8009A0C8980B84D09 /* AppTheme.swift */; };
+		6018156889DB69987312A957 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FC88ECE8497E02918C5A14 /* OnboardingView.swift */; };
+		61C0266A3399A7AC215A7785 /* LifeQuest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51489EB7FFC36AC4287EB1D1 /* LifeQuest.swift */; };
+		7007950732EDB6777EB720EB /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B346D9B18D24B7AC35180A6 /* LaunchScreen.swift */; };
+		7340172484DC5AE78CE268DE /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F6CE49F8C66E5FE3191469 /* AchievementsView.swift */; };
+		75E55B5B1CE9ACFD553C8AD5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3795C320F5ED258D30EA96C /* Models.swift */; };
+		949C907D268DECAE88B25695 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36E8206768DC70CFC793D8C9 /* UserNotifications.framework */; };
+		9959E836B9F7A54F82688A01 /* SupabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CFBC16D779EF8E9B03C0D6C /* SupabaseManager.swift */; };
+		9CA6AA9A7374C2B826783929 /* QuickLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F11157596FA811EAA70C604 /* QuickLogView.swift */; };
+		AED2CF6CA3961E8CB5C6C45F /* SwiftData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D8353331455C59253A6663 /* SwiftData.framework */; };
+		C74E4DEA61FB22A3DD2AF445 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AE4033B85CDE39E0EE0D87 /* SettingsView.swift */; };
+		CE9874E1490AAD4428B7C17D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E5ED624CA60BAC3FFAEC6 /* HomeView.swift */; };
+		DD84FAADCCA2525463EFB722 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA6B762FC60C3F2AA2D5961 /* SwiftUI.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		13D8353331455C59253A6663 /* SwiftData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftData.framework; path = System/Library/Frameworks/SwiftData.framework; sourceTree = SDKROOT; };
+		165DB058A555D7456F6EF5FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E0208A8009A0C8980B84D09 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		36E8206768DC70CFC793D8C9 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		51489EB7FFC36AC4287EB1D1 /* LifeQuest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeQuest.swift; sourceTree = "<group>"; };
+		5CFBC16D779EF8E9B03C0D6C /* SupabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupabaseManager.swift; sourceTree = "<group>"; };
+		5F01C44BF23565DC07B9AE7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		62F6CE49F8C66E5FE3191469 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
+		6614469160B07A59A5C09F78 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		6655CD40A404126D674C71D1 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		6CCA2E5A51B085AC23EEAAD9 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		8B346D9B18D24B7AC35180A6 /* LaunchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
+		8F11157596FA811EAA70C604 /* QuickLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLogView.swift; sourceTree = "<group>"; };
+		A4AE4033B85CDE39E0EE0D87 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		B8FC88ECE8497E02918C5A14 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		BBA6B762FC60C3F2AA2D5961 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		BF5D7A0FB3009D71DEBD2588 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		C3795C320F5ED258D30EA96C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		C40E5ED624CA60BAC3FFAEC6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		D2D6F0E883865C617C1D3FE8 /* LifeQuest.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = LifeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5639729367786AF6848C94E /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		606C0E7231579ECC9DEA2578 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A0E55602FA0CA27007AD1AB /* Functions in Frameworks */,
+				DD84FAADCCA2525463EFB722 /* SwiftUI.framework in Frameworks */,
+				3A0E55622FA0CA27007AD1AB /* PostgREST in Frameworks */,
+				3A0E55642FA0CA27007AD1AB /* Realtime in Frameworks */,
+				AED2CF6CA3961E8CB5C6C45F /* SwiftData.framework in Frameworks */,
+				08A0856ADDEB665D56EC0E64 /* MapKit.framework in Frameworks */,
+				3A0E55662FA0CA27007AD1AB /* Storage in Frameworks */,
+				3A0E555E2FA0CA27007AD1AB /* Auth in Frameworks */,
+				949C907D268DECAE88B25695 /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A52254F4E2F1F8E3A562123 = {
+			isa = PBXGroup;
+			children = (
+				DC8680007466BF1F0BECF941 /* LifeQuest */,
+				EF5A61616DC23738FFACCAC6 /* Frameworks */,
+				41A7C9D9D980429364389739 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0B3F5DA08F243687B5DD9EC4 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5CFBC16D779EF8E9B03C0D6C /* SupabaseManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		2F7B32AE11BECC1D0BCD4D5D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C40E5ED624CA60BAC3FFAEC6 /* HomeView.swift */,
+				8F11157596FA811EAA70C604 /* QuickLogView.swift */,
+				6CCA2E5A51B085AC23EEAAD9 /* TimerView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		41A7C9D9D980429364389739 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2D6F0E883865C617C1D3FE8 /* LifeQuest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65E6D0EBCA10C054942620BE /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8B346D9B18D24B7AC35180A6 /* LaunchScreen.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		783B371A3449F5CE5B5C9163 /* Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				E5639729367786AF6848C94E /* AnalyticsView.swift */,
+			);
+			path = Analytics;
+			sourceTree = "<group>";
+		};
+		7BD8BF2FC2C803C7B8DEC42D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6655CD40A404126D674C71D1 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		837C9BA065984F86CA2B6892 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C3795C320F5ED258D30EA96C /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		87DBD0AB1A372F4679D131B0 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				62F6CE49F8C66E5FE3191469 /* AchievementsView.swift */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
+		95D6082117C4AB610CCAD455 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D267C321F357DC48B8F23C4C /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				1E0208A8009A0C8980B84D09 /* AppTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		D2C10A29489114F0F313483B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF5D7A0FB3009D71DEBD2588 /* MainTabView.swift */,
+				87DBD0AB1A372F4679D131B0 /* Achievements */,
+				783B371A3449F5CE5B5C9163 /* Analytics */,
+				65E6D0EBCA10C054942620BE /* Components */,
+				2F7B32AE11BECC1D0BCD4D5D /* Home */,
+				F8CCC0A56F1011AA808700AC /* Onboarding */,
+				DDB071B276066F1481245F11 /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DC8680007466BF1F0BECF941 /* LifeQuest */ = {
+			isa = PBXGroup;
+			children = (
+				165DB058A555D7456F6EF5FD /* Assets.xcassets */,
+				5F01C44BF23565DC07B9AE7B /* Info.plist */,
+				51489EB7FFC36AC4287EB1D1 /* LifeQuest.swift */,
+				95D6082117C4AB610CCAD455 /* App */,
+				837C9BA065984F86CA2B6892 /* Models */,
+				0B3F5DA08F243687B5DD9EC4 /* Services */,
+				D267C321F357DC48B8F23C4C /* Theme */,
+				F0D038586EBD701ED895A8C3 /* Utils */,
+				7BD8BF2FC2C803C7B8DEC42D /* ViewModels */,
+				D2C10A29489114F0F313483B /* Views */,
+			);
+			path = LifeQuest;
+			sourceTree = "<group>";
+		};
+		DDB071B276066F1481245F11 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A4AE4033B85CDE39E0EE0D87 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		EF5A61616DC23738FFACCAC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6614469160B07A59A5C09F78 /* MapKit.framework */,
+				13D8353331455C59253A6663 /* SwiftData.framework */,
+				BBA6B762FC60C3F2AA2D5961 /* SwiftUI.framework */,
+				36E8206768DC70CFC793D8C9 /* UserNotifications.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0D038586EBD701ED895A8C3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		F8CCC0A56F1011AA808700AC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B8FC88ECE8497E02918C5A14 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0601817ABBFF183C8211FDB3 /* LifeQuest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A24931B6B93D9C44D69F585 /* Build configuration list for PBXNativeTarget "LifeQuest" */;
+			buildPhases = (
+				16B7657224AE350CC305CA0D /* Sources */,
+				8743F0054F08F95FD350D82C /* Resources */,
+				606C0E7231579ECC9DEA2578 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LifeQuest;
+			packageProductDependencies = (
+				3A0E555D2FA0CA27007AD1AB /* Auth */,
+				3A0E555F2FA0CA27007AD1AB /* Functions */,
+				3A0E55612FA0CA27007AD1AB /* PostgREST */,
+				3A0E55632FA0CA27007AD1AB /* Realtime */,
+				3A0E55652FA0CA27007AD1AB /* Storage */,
+			);
+			productName = LifeQuest;
+			productReference = D2D6F0E883865C617C1D3FE8 /* LifeQuest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2D68DACA60A3A40F88FC2F9E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					0601817ABBFF183C8211FDB3 = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = D5AB15B282BC60D0B7FC7A82 /* Build configuration list for PBXProject "LifeQuest" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 0A52254F4E2F1F8E3A562123;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 41A7C9D9D980429364389739 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0601817ABBFF183C8211FDB3 /* LifeQuest */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8743F0054F08F95FD350D82C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3FB0832E339304B2D91E825B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16B7657224AE350CC305CA0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7340172484DC5AE78CE268DE /* AchievementsView.swift in Sources */,
+				401A8488C6A5A4827AEF41EB /* AnalyticsView.swift in Sources */,
+				4AD10291BA13D01FE07EEB58 /* AppTheme.swift in Sources */,
+				342D19CDEDEFEEA16D614FE1 /* AuthViewModel.swift in Sources */,
+				CE9874E1490AAD4428B7C17D /* HomeView.swift in Sources */,
+				7007950732EDB6777EB720EB /* LaunchScreen.swift in Sources */,
+				61C0266A3399A7AC215A7785 /* LifeQuest.swift in Sources */,
+				2148624F23AB40DF354221FD /* MainTabView.swift in Sources */,
+				75E55B5B1CE9ACFD553C8AD5 /* Models.swift in Sources */,
+				6018156889DB69987312A957 /* OnboardingView.swift in Sources */,
+				9CA6AA9A7374C2B826783929 /* QuickLogView.swift in Sources */,
+				C74E4DEA61FB22A3DD2AF445 /* SettingsView.swift in Sources */,
+				9959E836B9F7A54F82688A01 /* SupabaseManager.swift in Sources */,
+				32FBFFEF008D3D34287931FD /* TimerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4145C863530C0ACD7F00FB58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = LifeQuest/Info.plist;
+				INFOPLIST_GENERATION_DISABLED = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifequest.app;
+				SDKROOT = iphoneos;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A7253D01D71EA3D7B54ECAD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				INFOPLIST_FILE = LifeQuest/Info.plist;
+				INFOPLIST_GENERATION_DISABLED = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifequest.app;
+				SDKROOT = iphoneos;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4F1AFC29621E1EC6644016EC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		B983FF5C2E88EACAF2F7D434 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A24931B6B93D9C44D69F585 /* Build configuration list for PBXNativeTarget "LifeQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4145C863530C0ACD7F00FB58 /* Debug */,
+				4A7253D01D71EA3D7B54ECAD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D5AB15B282BC60D0B7FC7A82 /* Build configuration list for PBXProject "LifeQuest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B983FF5C2E88EACAF2F7D434 /* Debug */,
+				4F1AFC29621E1EC6644016EC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3A0E555D2FA0CA27007AD1AB /* Auth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Auth;
+		};
+		3A0E555F2FA0CA27007AD1AB /* Functions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Functions;
+		};
+		3A0E55612FA0CA27007AD1AB /* PostgREST */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = PostgREST;
+		};
+		3A0E55632FA0CA27007AD1AB /* Realtime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Realtime;
+		};
+		3A0E55652FA0CA27007AD1AB /* Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Storage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2D68DACA60A3A40F88FC2F9E /* Project object */;
+}
