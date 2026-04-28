@@ -11,6 +11,11 @@ settings:
     SWIFT_VERSION: "5.9"
     DEVELOPMENT_TEAM: ""
 
+packages:
+  Supabase:
+    url: https://github.com/supabase/supabase-swift
+    from: "2.0.0"
+
 targets:
   LifeQuest:
     type: application
@@ -33,5 +38,7 @@ targets:
       - sdk: SwiftData.framework
       - sdk: MapKit.framework
       - sdk: UserNotifications.framework
+      - package: Supabase
+        product: Supabase
     info:
       path: LifeQuest/Info.plist

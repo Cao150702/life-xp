@@ -26,6 +26,7 @@
 		C74E4DEA61FB22A3DD2AF445 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4AE4033B85CDE39E0EE0D87 /* SettingsView.swift */; };
 		CE9874E1490AAD4428B7C17D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40E5ED624CA60BAC3FFAEC6 /* HomeView.swift */; };
 		DD84FAADCCA2525463EFB722 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA6B762FC60C3F2AA2D5961 /* SwiftUI.framework */; };
+		EEBE5BC98B4D30E5C7284001 /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = E15515148E8CD47D54CD8073 /* Supabase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 				AED2CF6CA3961E8CB5C6C45F /* SwiftData.framework in Frameworks */,
 				08A0856ADDEB665D56EC0E64 /* MapKit.framework in Frameworks */,
 				949C907D268DECAE88B25695 /* UserNotifications.framework in Frameworks */,
+				EEBE5BC98B4D30E5C7284001 /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +241,7 @@
 			);
 			name = LifeQuest;
 			packageProductDependencies = (
+				E15515148E8CD47D54CD8073 /* Supabase */,
 			);
 			productName = LifeQuest;
 			productReference = D2D6F0E883865C617C1D3FE8 /* LifeQuest.app */;
@@ -267,6 +270,9 @@
 			);
 			mainGroup = 0A52254F4E2F1F8E3A562123;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				F5764CC91155BB43EE4CCA44 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 41A7C9D9D980429364389739 /* Products */;
 			projectDirPath = "";
@@ -496,6 +502,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F5764CC91155BB43EE4CCA44 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E15515148E8CD47D54CD8073 /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5764CC91155BB43EE4CCA44 /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2D68DACA60A3A40F88FC2F9E /* Project object */;
 }

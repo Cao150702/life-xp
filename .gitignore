@@ -2,3 +2,6 @@
 
 # WorkBuddy
 .workbuddy/
+
+# Xcode
+*.xcuserstate
