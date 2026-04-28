@@ -1,13 +1,16 @@
 import SwiftUI
 
 struct QuickLogView: View {
+    @Environment(\.dismiss) private var dismiss
     @State private var selectedCategory: Category?
     @State private var title = ""
-    @State private var duration = ""
+    @State private var selectedMinutes = 30
     @State private var note = ""
     @FocusState private var focusedField: Field?
     
-    enum Field { case title, duration, note }
+    enum Field { case title, note }
+    
+    private let minuteOptions = Array(stride(from: 5, through: 180, by: 5))
     
     var body: some View {
         NavigationStack {
@@ -67,56 +70,67 @@ struct QuickLogView: View {
                             )
                     }
                     
-                    // Duration
+                    // Duration Picker
                     VStack(alignment: .leading, spacing: Spacing.sm) {
-                        Text("时长（分钟）")
-                            .font(.caption.weight(.bold))
-                            .foregroundStyle(.muted)
+                        HStack {
+                            Text("时长")
+                                .font(.caption.weight(.bold))
+                                .foregroundStyle(.muted)
+                            Spacer()
+                            Text(formatDuration(selectedMinutes))
+                                .font(.title3.weight(.bold).monospacedDigit())
+                                .foregroundStyle(.brand)
+                        }
                         
-                        TextField("例：90", text: $duration)
-                            .focused($focusedField, equals: .duration)
-                            .textFieldStyle(.plain)
-                            .keyboardType(.numberPad)
-                            .padding(Spacing.lg)
-                            .background(Color.card)
-                            .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: CornerRadius.small)
-                                    .stroke(focusedField == .duration ? Color.brandPurple : Color.border)
-                            )
+                        Picker("分钟", selection: $selectedMinutes) {
+                            ForEach(minuteOptions, id: \.self) { min in
+                                Text(formatDuration(min)).tag(min)
+                            }
+                        }
+                        .pickerStyle(.wheel)
+                        .frame(height: 120)
+                        .clipped()
                     }
+                    .padding(.vertical, 8)
+                    .background(Color.card)
+                    .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small))
                     
-                    // Note
-                    VStack(alignment: .leading, spacing: Spacing.sm) {
-                        Text("备注（可选）")
-                            .font(.caption.weight(.bold))
-                            .foregroundStyle(.muted)
-                        
+                    // Note (optional, collapsed)
+                    DisclosureGroup {
                         TextField("例：第三章 重点", text: $note)
                             .focused($focusedField, equals: .note)
                             .textFieldStyle(.plain)
                             .padding(Spacing.lg)
-                            .background(Color.card)
-                            .clipShape(RoundedRectangle(cornerRadius: CornerRadius.small))
-                            .overlay(
-                                RoundedRectangle(cornerRadius: CornerRadius.small)
-                                    .stroke(focusedField == .note ? Color.brandPurple : Color.border)
-                            )
+                            .background(Color.bg2)
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                    } label: {
+                        Text("备注（可选）")
+                            .font(.caption.weight(.bold))
+                            .foregroundStyle(.muted)
                     }
+                    .tint(.brandPurple)
                     
                     // XP Preview
-                    if let cat = selectedCategory, let dur = Int(duration), dur > 0 {
+                    if let cat = selectedCategory {
                         HStack {
-                            Text("⚡")
-                            Text("预计 +\(dur * cat.xpPerMin) XP")
+                            Image(systemName: "bolt.fill")
+                                .foregroundStyle(.brandAmber)
+                            Text("预计 +\(selectedMinutes * cat.xpPerMin) XP")
                                 .font(.subheadline.weight(.bold))
                                 .foregroundStyle(.brandEmerald)
+                            Spacer()
+                            Text("\(selectedMinutes) × \(cat.xpPerMin)/min")
+                                .font(.caption)
+                                .foregroundStyle(.muted)
                         }
                         .padding(Spacing.md)
-                        .frame(maxWidth: .infinity, alignment: .leading)
                         .background(
                             RoundedRectangle(cornerRadius: CornerRadius.small)
-                                .fill(Color.brandEmerald.opacity(0.1))
+                                .fill(Color.brandEmerald.opacity(0.08))
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: CornerRadius.small)
+                                        .stroke(Color.brandEmerald.opacity(0.2), lineWidth: 1)
+                                )
                         )
                     }
                     
@@ -124,15 +138,18 @@ struct QuickLogView: View {
                     Button {
                         submitLog()
                     } label: {
-                        Text("提交记录")
-                            .font(.headline)
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 54)
-                            .background(
-                                RoundedRectangle(cornerRadius: CornerRadius.small)
-                                    .fill(canSubmit ? .brand : .gray.opacity(0.3))
-                            )
+                        HStack(spacing: 8) {
+                            Image(systemName: "checkmark.circle.fill")
+                            Text("提交记录")
+                                .font(.headline)
+                        }
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 54)
+                        .background(
+                            RoundedRectangle(cornerRadius: CornerRadius.small)
+                                .fill(canSubmit ? .brand.gradient : Color.gray.opacity(0.3))
+                        )
                     }
                     .disabled(!canSubmit)
                 }
@@ -141,21 +158,36 @@ struct QuickLogView: View {
             .background(Color.bg)
             .navigationTitle("快速记录")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button("取消") { dismiss() }
+                        .foregroundStyle(.textSecondary)
+                }
+            }
         }
     }
     
     private var canSubmit: Bool {
-        selectedCategory != nil && !title.trimmingCharacters(in: .whitespaces).isEmpty && (Int(duration) ?? 0) > 0
+        selectedCategory != nil && !title.trimmingCharacters(in: .whitespaces).isEmpty
+    }
+    
+    private func formatDuration(_ minutes: Int) -> String {
+        if minutes >= 60 {
+            let h = minutes / 60
+            let m = minutes % 60
+            return m > 0 ? "\(h)h\(m)min" : "\(h)h"
+        }
+        return "\(minutes)min"
     }
     
     private func submitLog() {
-        // TODO: Submit to ViewModel & Supabase
-        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        guard let cat = selectedCategory else { return }
+        let xp = selectedMinutes * cat.xpPerMin
         
-        // Reset
-        selectedCategory = nil
-        title = ""
-        duration = ""
-        note = ""
+        // TODO: Submit to Supabase
+        print("📝 Log: \(cat.name) - \(title) - \(selectedMinutes)min - +\(xp)XP")
+        
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        dismiss()
     }
 }

@@ -10,20 +10,20 @@ struct AnalyticsView: View {
                 VStack(spacing: Spacing.xl) {
                     // Week Navigation
                     HStack {
-                        Button { weekOffset += 1 } label: {
+                        Button { if weekOffset > 0 { weekOffset -= 1 } } label: {
                             Image(systemName: "chevron.left")
-                                .foregroundStyle(.textSecondary)
+                                .foregroundStyle(weekOffset > 0 ? .textSecondary : .muted.opacity(0.3))
                         }
+                        .disabled(weekOffset == 0)
                         Spacer()
                         Text(weekLabel)
                             .font(.subheadline.weight(.bold))
                             .foregroundStyle(.textSecondary)
                         Spacer()
-                        Button { if weekOffset > 0 { weekOffset -= 1 } } label: {
+                        Button { weekOffset += 1 } label: {
                             Image(systemName: "chevron.right")
-                                .foregroundStyle(weekOffset > 0 ? .textSecondary : .muted.opacity(0.3))
+                                .foregroundStyle(.textSecondary)
                         }
-                        .disabled(weekOffset == 0)
                     }
                     .padding(.horizontal, Spacing.md)
                     
@@ -65,12 +65,12 @@ struct AnalyticsView: View {
                     .foregroundStyle(.textSecondary)
             }
             
-            // Placeholder chart - will be replaced with real data
+            // Placeholder - will be replaced with real data from ViewModel
             Chart {
                 ForEach(0..<7, id: \.self) { day in
                     BarMark(
                         x: .value("Day", weekdayName(day)),
-                        y: .value("XP", Double.random(in: 0...300))
+                        y: .value("XP", 0)
                     )
                     .foregroundStyle(.brand.gradient)
                     .cornerRadius(4)
@@ -90,6 +90,11 @@ struct AnalyticsView: View {
                         .font(.caption2)
                         .foregroundStyle(.muted)
                 }
+            }
+            .overlay(alignment: .center) {
+                Text("接入数据后显示")
+                    .font(.caption)
+                    .foregroundStyle(.muted.opacity(0.6))
             }
         }
         .padding(Spacing.xl)
@@ -121,12 +126,23 @@ struct AnalyticsView: View {
                     
                     GeometryReader { geo in
                         Rectangle()
-                            .fill(Color(hex: cat.color))
-                            .frame(width: geo.size.width * Double.random(in: 0...1), height: 8)
+                            .fill(Color(hex: cat.color).opacity(0.8))
+                            .frame(width: 0, height: 8)
                             .clipShape(Capsule())
                     }
                     .frame(height: 8)
+                    
+                    Text("0h")
+                        .font(.caption2.monospacedDigit())
+                        .foregroundStyle(.muted)
+                        .frame(width: 28, alignment: .trailing)
                 }
+            }
+            .overlay(alignment: .center) {
+                Text("接入数据后显示")
+                    .font(.caption)
+                    .foregroundStyle(.muted.opacity(0.6))
+                    .padding(.top, 60)
             }
         }
         .padding(Spacing.xl)
@@ -168,10 +184,10 @@ struct AnalyticsView: View {
     
     private var summaryCard: some View {
         HStack(spacing: Spacing.md) {
-            SummaryStatView(title: "本周 XP", value: "1,234")
-            SummaryStatView(title: "本周时长", value: "5.2h")
-            SummaryStatView(title: "日均 XP", value: "176")
-            SummaryStatView(title: "记录数", value: "18")
+            SummaryStatView(title: "本周 XP", value: "—")
+            SummaryStatView(title: "本周时长", value: "—")
+            SummaryStatView(title: "日均 XP", value: "—")
+            SummaryStatView(title: "记录数", value: "—")
         }
     }
     

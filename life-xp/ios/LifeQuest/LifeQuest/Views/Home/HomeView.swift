@@ -2,15 +2,20 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject var authVM: AuthViewModel
+    var onRecordTap: (() -> Void)? = nil
     @State private var todayXP = 0
     @State private var todayMinutes = 0
     @State private var streak = 0
     @State private var totalXP = 0
+    @State private var todayLogs: [LogEntry] = []
     
     var body: some View {
         NavigationStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(spacing: Spacing.xl) {
+                    // Greeting
+                    greetingHeader
+                    
                     // Hero Card
                     heroCard
                     
@@ -22,13 +27,48 @@ struct HomeView: View {
                     
                     // Today's Logs
                     todayLogsSection
+                    
+                    // Bottom spacer for tab bar + floating button
+                    Color.clear.frame(height: 80)
                 }
-                .padding(Spacing.lg)
+                .padding(.horizontal, Spacing.lg)
             }
             .background(Color.bg)
-            .navigationTitle("LifeQuest")
-            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarHidden(true)
         }
+    }
+    
+    // MARK: - Greeting
+    private var greetingHeader: some View {
+        HStack {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(greetingText)
+                    .font(.title2.weight(.bold))
+                Text(dateString)
+                    .font(.subheadline)
+                    .foregroundStyle(.textSecondary)
+            }
+            Spacer()
+        }
+        .padding(.top, Spacing.md)
+    }
+    
+    private var greetingText: String {
+        let hour = Calendar.current.component(.hour, from: Date())
+        if hour < 6 { return "夜深了 🌙" }
+        if hour < 9 { return "早上好 ☀️" }
+        if hour < 12 { return "上午好 🌤" }
+        if hour < 14 { return "中午好 🍱" }
+        if hour < 18 { return "下午好 ☕" }
+        if hour < 22 { return "晚上好 🌆" }
+        return "夜深了 🌙"
+    }
+    
+    private var dateString: String {
+        let fmt = DateFormatter()
+        fmt.locale = Locale(identifier: "zh_CN")
+        fmt.dateFormat = "M月d日 EEEE"
+        return fmt.string(from: Date())
     }
     
     // MARK: - Hero Card
@@ -125,28 +165,124 @@ struct HomeView: View {
     // MARK: - Today's Logs
     private var todayLogsSection: some View {
         VStack(alignment: .leading, spacing: Spacing.md) {
-            Text("今日记录")
-                .font(.headline)
+            HStack {
+                Text("今日记录")
+                    .font(.headline)
+                Spacer()
+                if !todayLogs.isEmpty {
+                    Text("\(todayLogs.count) 条")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.brandPurple)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(Capsule().fill(Color.brandPurple.opacity(0.12)))
+                }
+            }
             
-            VStack(spacing: Spacing.sm) {
-                // Placeholder
+            if todayLogs.isEmpty {
+                // Empty state
                 HStack {
                     Spacer()
-                    VStack(spacing: 8) {
+                    VStack(spacing: 12) {
                         Text("📝")
                             .font(.system(size: 40))
                         Text("今天还没有记录")
+                            .font(.subheadline.weight(.medium))
                             .foregroundStyle(.textSecondary)
-                        Text("点击「记录」开始打卡")
+                        Text("点击底部 + 开始打卡")
                             .font(.caption)
                             .foregroundStyle(.muted)
                     }
                     Spacer()
                 }
-                .frame(height: 120)
+                .frame(height: 140)
+                .background(
+                    RoundedRectangle(cornerRadius: CornerRadius.small)
+                        .fill(Color.card)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: CornerRadius.small)
+                                .strokeBorder(style: StrokeStyle(lineWidth: 1, dash: [6]))
+                                .foregroundStyle(Color.border)
+                        )
+                )
+            } else {
+                ForEach(todayLogs) { log in
+                    LogRowView(log: log)
+                }
             }
         }
     }
+}
+
+// MARK: - Log Entry
+
+struct LogEntry: Identifiable {
+    let id = UUID()
+    let icon: String
+    let name: String
+    let title: String
+    let duration: Int
+    let xp: Int
+    let time: String
+    let color: String
+}
+
+// MARK: - Log Row View
+
+struct LogRowView: View {
+    let log: LogEntry
+    
+    var body: some View {
+        HStack(spacing: Spacing.md) {
+            // Category icon
+            Text(log.icon)
+                .font(.title3)
+                .frame(width: 40, height: 40)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color(hex: log.color).opacity(0.12))
+                )
+            
+            // Info
+            VStack(alignment: .leading, spacing: 3) {
+                HStack {
+                    Text(log.name)
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(Color(hex: log.color))
+                    Text("·")
+                        .foregroundStyle(.muted)
+                    Text(log.time)
+                        .font(.caption)
+                        .foregroundStyle(.muted)
+                }
+                Text(log.title)
+                    .font(.subheadline.weight(.medium))
+                    .lineLimit(1)
+            }
+            
+            Spacer()
+            
+            // XP badge
+            VStack(alignment: .trailing, spacing: 2) {
+                Text("+\(log.xp)")
+                    .font(.subheadline.weight(.bold).monospacedDigit())
+                    .foregroundStyle(.brandEmerald)
+                Text("\(log.duration)min")
+                    .font(.system(size: 10))
+                    .foregroundStyle(.muted)
+            }
+        }
+        .padding(Spacing.lg)
+        .background(
+            RoundedRectangle(cornerRadius: CornerRadius.small)
+                .fill(Color.card)
+                .overlay(
+                    RoundedRectangle(cornerRadius: CornerRadius.small)
+                        .stroke(Color.border, lineWidth: 1)
+                )
+        )
+    }
+}
 }
 
 // MARK: - Stat Card

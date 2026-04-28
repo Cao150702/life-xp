@@ -11,11 +11,6 @@
 		2148624F23AB40DF354221FD /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D7A0FB3009D71DEBD2588 /* MainTabView.swift */; };
 		32FBFFEF008D3D34287931FD /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CCA2E5A51B085AC23EEAAD9 /* TimerView.swift */; };
 		342D19CDEDEFEEA16D614FE1 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6655CD40A404126D674C71D1 /* AuthViewModel.swift */; };
-		3A0E555E2FA0CA27007AD1AB /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E555D2FA0CA27007AD1AB /* Auth */; };
-		3A0E55602FA0CA27007AD1AB /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E555F2FA0CA27007AD1AB /* Functions */; };
-		3A0E55622FA0CA27007AD1AB /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E55612FA0CA27007AD1AB /* PostgREST */; };
-		3A0E55642FA0CA27007AD1AB /* Realtime in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E55632FA0CA27007AD1AB /* Realtime */; };
-		3A0E55662FA0CA27007AD1AB /* Storage in Frameworks */ = {isa = PBXBuildFile; productRef = 3A0E55652FA0CA27007AD1AB /* Storage */; };
 		3FB0832E339304B2D91E825B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 165DB058A555D7456F6EF5FD /* Assets.xcassets */; };
 		401A8488C6A5A4827AEF41EB /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5639729367786AF6848C94E /* AnalyticsView.swift */; };
 		4AD10291BA13D01FE07EEB58 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E0208A8009A0C8980B84D09 /* AppTheme.swift */; };
@@ -62,14 +57,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A0E55602FA0CA27007AD1AB /* Functions in Frameworks */,
 				DD84FAADCCA2525463EFB722 /* SwiftUI.framework in Frameworks */,
-				3A0E55622FA0CA27007AD1AB /* PostgREST in Frameworks */,
-				3A0E55642FA0CA27007AD1AB /* Realtime in Frameworks */,
 				AED2CF6CA3961E8CB5C6C45F /* SwiftData.framework in Frameworks */,
 				08A0856ADDEB665D56EC0E64 /* MapKit.framework in Frameworks */,
-				3A0E55662FA0CA27007AD1AB /* Storage in Frameworks */,
-				3A0E555E2FA0CA27007AD1AB /* Auth in Frameworks */,
 				949C907D268DECAE88B25695 /* UserNotifications.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,11 +239,6 @@
 			);
 			name = LifeQuest;
 			packageProductDependencies = (
-				3A0E555D2FA0CA27007AD1AB /* Auth */,
-				3A0E555F2FA0CA27007AD1AB /* Functions */,
-				3A0E55612FA0CA27007AD1AB /* PostgREST */,
-				3A0E55632FA0CA27007AD1AB /* Realtime */,
-				3A0E55652FA0CA27007AD1AB /* Storage */,
 			);
 			productName = LifeQuest;
 			productReference = D2D6F0E883865C617C1D3FE8 /* LifeQuest.app */;
@@ -282,9 +267,6 @@
 			);
 			mainGroup = 0A52254F4E2F1F8E3A562123;
 			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */,
-			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 41A7C9D9D980429364389739 /* Products */;
 			projectDirPath = "";
@@ -514,45 +496,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/supabase/supabase-swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.5.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		3A0E555D2FA0CA27007AD1AB /* Auth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Auth;
-		};
-		3A0E555F2FA0CA27007AD1AB /* Functions */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Functions;
-		};
-		3A0E55612FA0CA27007AD1AB /* PostgREST */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = PostgREST;
-		};
-		3A0E55632FA0CA27007AD1AB /* Realtime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Realtime;
-		};
-		3A0E55652FA0CA27007AD1AB /* Storage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3A0E555C2FA0CA27007AD1AB /* XCRemoteSwiftPackageReference "supabase-swift" */;
-			productName = Storage;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2D68DACA60A3A40F88FC2F9E /* Project object */;
 }
